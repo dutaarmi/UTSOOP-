@@ -1,0 +1,32 @@
+class Bank:
+    def __init__(self, nama, nomor_rekening, saldo=0):
+        self.nama = nama
+        self.nomor_rekening = nomor_rekening
+        self.saldo = saldo
+
+    def tambah_saldo(self, jumlah):
+        if jumlah > 0:
+            self.saldo += jumlah
+            print(f"Saldo berhasil ditambahkan. Saldo sekarang: {self.saldo}")
+        else:
+            print("Jumlah yang dimasukkan harus lebih besar dari 0.")
+
+    def kurangi_saldo(self, jumlah):
+        if jumlah > 0 and jumlah <= self.saldo:
+            self.saldo -= jumlah
+            print(f"Penarikan berhasil. Saldo sekarang: {self.saldo}")
+        else:
+            print("Jumlah penarikan tidak valid atau saldo tidak mencukupi.")
+
+    def tampilkan_informasi_rekening(self):
+        print(f"Informasi Rekening:\nNama: {self.nama}\nNomor Rekening: {self.nomor_rekening}\nSaldo: {self.saldo}")
+
+# Contoh penggunaan
+nasabah1 = Bank("muhammad ajib duta armi", "0980385591", 100000)
+
+nasabah1.tampilkan_informasi_rekening()
+
+nasabah1.tambah_saldo(20000)
+nasabah1.kurangi_saldo(15000)
+
+nasabah1.tampilkan_informasi_rekening()

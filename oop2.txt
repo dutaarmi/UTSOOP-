@@ -1,0 +1,54 @@
+import math
+
+class Tabung:
+    def __init__(self, jari_jari, tinggi):
+        self._jari_jari = jari_jari
+        self._tinggi = tinggi
+
+    @property
+    def jari_jari(self):
+        return self._jari_jari
+
+    @jari_jari.setter
+    def jari_jari(self, value):
+        if value > 0:
+            self._jari_jari = value
+        else:
+            print("Jari-jari harus lebih besar dari 0")
+
+    @property
+    def tinggi(self):
+        return self._tinggi
+
+    @tinggi.setter
+    def tinggi(self, value):
+        if value > 0:
+            self._tinggi = value
+        else:
+            print("Tinggi harus lebih besar dari 0")
+
+    def hitung_luas_permukaan(self):
+        luas_permukaan = 2 * math.pi * self._jari_jari * (self._jari_jari + self._tinggi)
+        return luas_permukaan
+
+    def hitung_volume(self):
+        volume = math.pi * self._jari_jari**2 * self._tinggi
+        return volume
+
+# Contoh penggunaan
+tabung1 = Tabung(jari_jari=3, tinggi=21)
+
+# Mengakses property
+print("Jari-jari:", tabung1.jari_jari)
+print("Tinggi:", tabung1.tinggi)
+
+# Mengubah nilai property menggunakan setter
+tabung1.jari_jari = 4
+tabung1.tinggi = 6
+
+# Menghitung luas permukaan dan volume
+luas_permukaan = tabung1.hitung_luas_permukaan()
+volume = tabung1.hitung_volume()
+
+print("Luas Permukaan:", luas_permukaan)
+print("Volume:", volume)

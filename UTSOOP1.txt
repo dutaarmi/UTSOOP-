@@ -1,0 +1,56 @@
+
+
+class PersegiPanjang:
+    def __init__(self, panjang, lebar):
+        self._panjang = panjang
+        self._lebar = lebar
+
+    # Getter untuk mendapatkan nilai panjang
+    def get_panjang(self):
+        return self._panjang
+
+    # Setter untuk mengatur nilai panjang
+    def set_panjang(self, panjang):
+        if panjang > 0:
+        
+            self._panjang = panjang
+        else:
+            print("Panjang harus lebih besar dari 0")
+
+    # Getter untuk mendapatkan nilai lebar
+    def get_lebar(self):
+        return self._lebar
+
+    # Setter untuk mengatur nilai lebar
+    def set_lebar(self, lebar):
+        if lebar > 0:
+            self._lebar = lebar
+        else:
+            print("Lebar harus lebih besar dari 0")
+
+    # Method untuk menghitung luas persegi panjang
+    def hitung_luas(self):
+        return self._panjang * self._lebar
+
+    # Method untuk menghitung keliling persegi panjang
+    def hitung_keliling(self):
+        return 2 * (self._panjang + self._lebar)
+
+
+# Contoh penggunaan
+persegi_panjang1 = PersegiPanjang(5, 8)
+
+# Menggunakan getter
+print("Panjang:", persegi_panjang1.get_panjang())
+print("Lebar:", persegi_panjang1.get_lebar())
+
+# Menggunakan setter
+persegi_panjang1.set_panjang(10)
+persegi_panjang1.set_lebar(6)
+
+# Menghitung luas dan keliling
+luas = persegi_panjang1.hitung_luas()
+keliling = persegi_panjang1.hitung_keliling()
+
+print("Luas:", luas)
+print("Keliling:", keliling)

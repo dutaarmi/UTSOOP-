@@ -1,0 +1,29 @@
+class MobilBalap:
+    def __init__(self, nama, model, kecepatan_awal=0):
+        self.nama = nama
+        self.model = model
+        self.kecepatan = kecepatan_awal
+
+    def percepat(self, tambahan_kecepatan):
+        self.kecepatan += tambahan_kecepatan
+        print(f"{self.nama} {self.model} dipercepat menjadi {self.kecepatan} km/jam.")
+
+    def perlambat(self, pengurangan_kecepatan):
+        if self.kecepatan - pengurangan_kecepatan >= 0:
+            self.kecepatan -= pengurangan_kecepatan
+            print(f"{self.nama} {self.model} diperlambat menjadi {self.kecepatan} km/jam.")
+        else:
+            print(f"{self.nama} {self.model} sudah berhenti.")
+
+    def tampilkan_informasi(self):
+        print(f"Informasi Mobil {self.nama} {self.model}:\nKecepatan: {self.kecepatan} km/jam")
+
+# Contoh penggunaan
+mobil1 = MobilBalap("angkong", "1000 thailand", 1000)
+
+mobil1.tampilkan_informasi()
+
+mobil1.percepat(500)
+mobil1.perlambat(150)
+
+mobil1.tampilkan_informasi()

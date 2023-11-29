@@ -1,0 +1,48 @@
+class Mahasiswa:
+    def __init__(self, nama, nomor_induk):
+        self.nama = nama
+        self.nomor_induk = nomor_induk
+        self.daftar_mata_kuliah = {}
+
+    def tambah_mata_kuliah(self, nama_mata_kuliah, nilai):
+        self.daftar_mata_kuliah[nama_mata_kuliah] = nilai
+        print(f"Mata kuliah {nama_mata_kuliah} berhasil ditambahkan dengan nilai {nilai}.")
+
+    def hapus_mata_kuliah(self, nama_mata_kuliah):
+        if nama_mata_kuliah in self.daftar_mata_kuliah:
+            del self.daftar_mata_kuliah[nama_mata_kuliah]
+            print(f"Mata kuliah {nama_mata_kuliah} berhasil dihapus.")
+        else:
+            print(f"Mata kuliah {nama_mata_kuliah} tidak ditemukan.")
+
+    def hitung_rata_rata(self):
+        if not self.daftar_mata_kuliah:
+            return 0
+        total_nilai = sum(self.daftar_mata_kuliah.values())
+        rata_rata = total_nilai / len(self.daftar_mata_kuliah)
+        return rata_rata
+
+    def tampilkan_catatan_akademik(self):
+        print(f"Catatan Akademik {self.nama} ({self.nomor_induk}):")
+        if not self.daftar_mata_kuliah:
+            print("Belum ada mata kuliah.")
+        else:
+            for mata_kuliah, nilai in self.daftar_mata_kuliah.items():
+                print(f"{mata_kuliah}: {nilai}")
+            rata_rata = self.hitung_rata_rata()
+            print(f"Rata-rata: {rata_rata:.2f}")
+
+# Contoh penggunaan
+mahasiswa1 = Mahasiswa("muhammad ajib duta armi", "202211015")
+
+mahasiswa1.tampilkan_catatan_akademik()
+
+mahasiswa1.tambah_mata_kuliah("basis data", 85)
+mahasiswa1.tambah_mata_kuliah("oop", 78)
+mahasiswa1.tambah_mata_kuliah("ai", 90)
+
+mahasiswa1.tampilkan_catatan_akademik()
+
+mahasiswa1.hapus_mata_kuliah("oop")
+
+mahasiswa1.tampilkan_catatan_akademik()
